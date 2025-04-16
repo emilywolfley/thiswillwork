@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Idea Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .question input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            background-color: #e7f7e7;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Business Idea Generator</h1>
+    <div class="question">
+        <label for="category1">What industry are you interested in?</label>
+        <input type="text" id="category1" placeholder="e.g., Tech, Healthcare, Fashion">
+    </div>
+    <div class="question">
+        <label for="category2">What product or service are you passionate about?</label>
+        <input type="text" id="category2" placeholder="e.g., Apps, Clothing, Consulting">
+    </div>
+    <div class="question">
+        <label for="category3">What market or demographic would you like to target?</label>
+        <input type="text" id="category3" placeholder="e.g., Students, Seniors, Parents">
+    </div>
+    
+    <div class="question">
+        <label for="interest1">What are your hobbies or interests?</label>
+        <input type="text" id="interest1" placeholder="e.g., Cooking, Traveling, Fitness">
+    </div>
+    <div class="question">
+        <label for="interest2">What skills do you have or are passionate about?</label>
+        <input type="text" id="interest2" placeholder="e.g., Coding, Writing, Design">
+    </div>
+    <div class="question">
+        <label for="interest3">What problem do you want to solve or improve?</label>
+        <input type="text" id="interest3" placeholder="e.g., Education, Health, Entertainment">
+    </div>
+    
+    <button class="btn" onclick="generateBusinessIdea()">Generate Business Idea</button>
+    
+    <div id="result" class="result" style="display:none;">
+        <p id="businessIdea"></p>
+    </div>
+</div>
+
+<script>
+    function generateBusinessIdea() {
+        // Get the inputs from the user
+        const category1 = document.getElementById("category1").value;
+        const category2 = document.getElementById("category2").value;
+        const category3 = document.getElementById("category3").value;
+        const interest1 = document.getElementById("interest1").value;
+        const interest2 = document.getElementById("interest2").value;
+        const interest3 = document.getElementById("interest3").value;
+
+        // Validate if all inputs are filled out
+        if (!category1 || !category2 || !category3 || !interest1 || !interest2 || !interest3) {
+            alert("Please fill out all fields before generating an idea!");
+            return;
+        }
+
+        // Generate a concise, one-line business idea
+        const businessIdea = `A ${category1} startup that creates innovative ${category2} products for ${category3}, combining your passion for ${interest1}, expertise in ${interest2}, and a focus on solving ${interest3}.`;
+
+        // Show the result
+        document.getElementById("businessIdea").textContent = businessIdea;
+        document.getElementById("result").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
